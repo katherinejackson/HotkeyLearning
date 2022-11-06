@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
 
-const options = window.options || { view: null, shape: 2, encoding: 1, practice: false, size: 'medium' };
+import { useState } from 'react';
+
+import CreateStack from './CreateStack';
+import FlashcardLearning from './FlashcardLearning';
+import keyData from './keyData'
+import Matching from './Matching';
+
+const options = window.options || { view: 'flashcard', colorScheme: 'default'};
+
 
 function App() {
+  const [view, setView] = useState(options['view'])
+  const selectedData = []
+
+  const data = keyData
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="d-flex flex-column">
+      {view == 'create' ? <CreateStack data={data} selectedData={selectedData}/>
+        : view == 'flashcard' ? <FlashcardLearning data={data} selectedData={selectedData}/>
+          : <Matching />}
     </div>
   );
 }

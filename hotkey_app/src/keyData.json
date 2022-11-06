@@ -1,0 +1,232 @@
+﻿[
+    {
+        "command": "Copy",
+        "windows_key": "Ctrl + c",
+        "mac_key": "\u2318 + c"
+    },
+    {
+        "command": "Cut",
+        "windows_key": "Ctrl + x",
+        "mac_key": "\u2318 + x"
+    },
+    {
+        "command": "Paste",
+        "windows_key": "Ctrl\u00a0+\u00a0v",
+        "mac_key": "\u2318 + v"
+    },
+    {
+        "command": "Paste without formatting",
+        "windows_key": "Ctrl\u00a0+\u00a0Shift\u00a0+\u00a0v",
+        "mac_key": "\u2318 + Shift + v"
+    },
+    {
+        "command": "Undo",
+        "windows_key": "Ctrl\u00a0+\u00a0z",
+        "mac_key": "\u2318 + z"
+    },
+    {
+        "command": "Redo",
+        "windows_key": "Ctrl\u00a0+\u00a0Shift\u00a0+\u00a0z",
+        "mac_key": "\u2318 + Shift + z"
+    },
+    {
+        "command": "Insert or edit link",
+        "windows_key": "Ctrl\u00a0+\u00a0k",
+        "mac_key": "\u2318 + k"
+    },
+    {
+        "command": "Open link",
+        "windows_key": "Alt\u00a0+\u00a0Enter",
+        "mac_key": "Option + Enter"
+    },
+    {
+        "command": "Show common keyboard shortcuts",
+        "windows_key": "Ctrl\u00a0+\u00a0/",
+        "mac_key": "\u2318 + /"
+    },
+    {
+        "command": "Save",
+        "windows_key": "Ctrl\u00a0+\u00a0s",
+        "mac_key": "\u2318 + s"
+    },
+    {
+        "command": "Print",
+        "windows_key": "Ctrl\u00a0+\u00a0p",
+        "mac_key": "\u2318 + p"
+    },
+    {
+        "command": "Open",
+        "windows_key": "Ctrl\u00a0+\u00a0o",
+        "mac_key": "\u2318 + o"
+    },
+    {
+        "command": "Find",
+        "windows_key": "Ctrl\u00a0+\u00a0f",
+        "mac_key": "\u2318 + f"
+    },
+    {
+        "command": "Find and replace",
+        "windows_key": "Ctrl\u00a0+\u00a0h",
+        "mac_key": "\u2318 + Shift + h"
+    },
+    {
+        "command": "Find again",
+        "windows_key": "Ctrl\u00a0+\u00a0g",
+        "mac_key": "\u2318 + g"
+    },
+    {
+        "command": "Find previous",
+        "windows_key": "Ctrl\u00a0+\u00a0Shift\u00a0+\u00a0g",
+        "mac_key": "\u2318 + Shift + g"
+    },
+    {
+        "command": "Hide the menus (compact mode)",
+        "windows_key": "Ctrl\u00a0+\u00a0Shift\u00a0+\u00a0f",
+        "mac_key": "Ctrl + Shift + f"
+    },
+    {
+        "command": "Insert page break",
+        "windows_key": "Ctrl\u00a0+\u00a0Enter",
+        "mac_key": "\u2318 + Enter"
+    },
+    {
+        "command": "Search the menus",
+        "windows_key": "Alt + /",
+        "mac_key": "Option + /"
+    },
+    {
+        "command": "Repeat last action",
+        "windows_key": "Ctrl\u00a0+\u00a0y",
+        "mac_key": "\u2318 + y"
+    },
+    {
+        "command": "Switch to editing",
+        "windows_key": "Ctrl + Alt + Shift + z",
+        "mac_key": "\u2318 + Option + Shift + z"
+    },
+    {
+        "command": "Switch to suggesting",
+        "windows_key": "Ctrl + Alt + Shift + x",
+        "mac_key": "\u2318 + Option + Shift + x"
+    },
+    {
+        "command": "Switch to viewing",
+        "windows_key": "Ctrl + Alt + Shift + c",
+        "mac_key": "\u2318 + Option + Shift + c"
+    },
+    {
+        "command": "Bold",
+        "windows_key": "Ctrl + b",
+        "mac_key": "\u2318 + b"
+    },
+    {
+        "command": "Italicize",
+        "windows_key": "Ctrl + i",
+        "mac_key": "\u2318 + i"
+    },
+    {
+        "command": "Underline",
+        "windows_key": "Ctrl + u",
+        "mac_key": "\u2318 + u"
+    },
+    {
+        "command": "Strikethrough",
+        "windows_key": "Alt + Shift + 5",
+        "mac_key": "\u2318 + Shift + x"
+    },
+    {
+        "command": "Superscript",
+        "windows_key": "Ctrl + .",
+        "mac_key": "\u2318 + ."
+    },
+    {
+        "command": "Subscript",
+        "windows_key": "Ctrl + ,",
+        "mac_key": "\u2318 + ,"
+    },
+    {
+        "command": "Copy text formatting",
+        "windows_key": "Ctrl + Alt + c",
+        "mac_key": "\u2318 + Option + c"
+    },
+    {
+        "command": "Paste text formatting",
+        "windows_key": "Ctrl + Alt + v",
+        "mac_key": "\u2318 + Option + v"
+    },
+    {
+        "command": "Clear text formatting",
+        "windows_key": "Ctrl + \\",
+        "mac_key": "\u2318 + \\"
+    },
+    {
+        "command": "Increase font size",
+        "windows_key": "Ctrl + Shift + .",
+        "mac_key": "\u2318 + Shift + ."
+    },
+    {
+        "command": "Decrease font size",
+        "windows_key": "Ctrl + Shift + ,",
+        "mac_key": "\u2318 + Shift + ,"
+    },
+    {
+        "command": "Increase paragraph indentation",
+        "windows_key": "Ctrl + ]",
+        "mac_key": "\u2318 + ]"
+    },
+    {
+        "command": "Decrease paragraph indentation",
+        "windows_key": "Ctrl + [",
+        "mac_key": "\u2318 + ["
+    },
+    {
+        "command": "Apply normal text style",
+        "windows_key": "Ctrl + Alt + 0",
+        "mac_key": "\u2318 + Option + 0"
+    },
+    {
+        "command": "Apply heading style [1-6]",
+        "windows_key": "Ctrl + Alt +\u00a0[1-6]",
+        "mac_key": "\u2318 + Option +\u00a0[1-6]"
+    },
+    {
+        "command": "Left align",
+        "windows_key": "Ctrl + Shift + l",
+        "mac_key": "\u2318 + Shift + l"
+    },
+    {
+        "command": "Center align",
+        "windows_key": "Ctrl + Shift + e",
+        "mac_key": "\u2318 + Shift + e"
+    },
+    {
+        "command": "Right align",
+        "windows_key": "Ctrl + Shift + r",
+        "mac_key": "\u2318 + Shift + r"
+    },
+    {
+        "command": "Justify",
+        "windows_key": "Ctrl + Shift + j",
+        "mac_key": "\u2318 + Shift + j"
+    },
+    {
+        "command": "Numbered list",
+        "windows_key": "Ctrl + Shift + 7",
+        "mac_key": "\u2318 + Shift + 7"
+    },
+    {
+        "command": "Bulleted list",
+        "windows_key": "Ctrl + Shift + 8",
+        "mac_key": "\u2318 + Shift + 8"
+    },
+    {
+        "command": "Checklist",
+        "windows_key": "Ctrl + Shift + 9",
+        "mac_key": "\u2318 + Shift + 9"
+    },
+    {
+        "command": "Move paragraph up/down",
+        "windows_key": "Ctrl + Shift + Up/down arrow",
+        "mac_key": "Ctrl + Shift + Up/down arrow"
+    }
+]

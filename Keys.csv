@@ -1,0 +1,47 @@
+﻿command,windows_key,mac_key
+Copy,Ctrl + c,⌘ + c
+Cut,Ctrl + x,⌘ + x
+Paste,Ctrl + v,⌘ + v
+Paste without formatting,Ctrl + Shift + v,⌘ + Shift + v
+Undo,Ctrl + z,⌘ + z
+Redo,Ctrl + Shift + z,⌘ + Shift + z
+Insert or edit link,Ctrl + k,⌘ + k
+Open link,Alt + Enter,Option + Enter
+Show common keyboard shortcuts,Ctrl + /,⌘ + /
+Save,Ctrl + s,⌘ + s
+Print,Ctrl + p,⌘ + p
+Open,Ctrl + o,⌘ + o
+Find,Ctrl + f,⌘ + f
+Find and replace,Ctrl + h,⌘ + Shift + h
+Find again,Ctrl + g,⌘ + g
+Find previous,Ctrl + Shift + g,⌘ + Shift + g
+Hide the menus (compact mode),Ctrl + Shift + f,Ctrl + Shift + f
+Insert page break,Ctrl + Enter,⌘ + Enter
+Search the menus,Alt + /,Option + /
+Repeat last action,Ctrl + y,⌘ + y
+Switch to editing,Ctrl + Alt + Shift + z,⌘ + Option + Shift + z
+Switch to suggesting,Ctrl + Alt + Shift + x,⌘ + Option + Shift + x
+Switch to viewing,Ctrl + Alt + Shift + c,⌘ + Option + Shift + c
+Bold,Ctrl + b,⌘ + b
+Italicize,Ctrl + i,⌘ + i
+Underline,Ctrl + u,⌘ + u
+Strikethrough,Alt + Shift + 5,⌘ + Shift + x
+Superscript,Ctrl + .,⌘ + .
+Subscript,"Ctrl + ,","⌘ + ,"
+Copy text formatting,Ctrl + Alt + c,⌘ + Option + c
+Paste text formatting,Ctrl + Alt + v,⌘ + Option + v
+Clear text formatting,Ctrl + \,⌘ + \
+Increase font size,Ctrl + Shift + .,⌘ + Shift + .
+Decrease font size,"Ctrl + Shift + ,","⌘ + Shift + ,"
+Increase paragraph indentation,Ctrl + ],⌘ + ]
+Decrease paragraph indentation,Ctrl + [,⌘ + [
+Apply normal text style,Ctrl + Alt + 0,⌘ + Option + 0
+Apply heading style [1-6],Ctrl + Alt + [1-6],⌘ + Option + [1-6]
+Left align,Ctrl + Shift + l,⌘ + Shift + l
+Center align,Ctrl + Shift + e,⌘ + Shift + e
+Right align,Ctrl + Shift + r,⌘ + Shift + r
+Justify,Ctrl + Shift + j,⌘ + Shift + j
+Numbered list,Ctrl + Shift + 7,⌘ + Shift + 7
+Bulleted list,Ctrl + Shift + 8,⌘ + Shift + 8
+Checklist,Ctrl + Shift + 9,⌘ + Shift + 9
+Move paragraph up/down,Ctrl + Shift + Up/down arrow,Ctrl + Shift + Up/down arrow
