@@ -31,11 +31,25 @@ const FlashcardLearning = ({ data }) => {
 
     }
 
+    const showPrevCard = () => {
+        if (currentIndex - 1 > 0) {
+            setCurrentIndex(currentIndex - 1)
+        } else {
+            setCurrentIndex(selectedItems.length - 1)
+        }
+
+    }
+
     return (
         selectedItems.length > 0
-            ? <div className="d-flex align-items-center justify-content-center flex-grow-1 flex-column">
+            ? <div>
+                <p className="d-flex justify-content-end">{`${currentIndex + 1} / ${selectedItems.length}`}</p>
                 <Flashcard front={data[selectedItems[currentIndex]]['command']} back={data[selectedItems[currentIndex]]['windows_key']} />
-                <button onClick={showNextCard}>Next</button>
+                <div className="flashcard-buttons">
+                    <button onClick={showPrevCard}>‹</button>
+                    <button onClick={showNextCard}>›</button>
+                </div>
+
             </div>
             : <p>No Cards to display</p>
     )

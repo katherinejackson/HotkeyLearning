@@ -9,7 +9,7 @@ const Flashcard = ({ front, back }) => {
 
 
     return (
-        <div className="align-items-center justify-content-center bg-primary d-flex p-5 w-75" onClick={handleCardClick}>
+        <div className="flashcard" onClick={handleCardClick}>
             {showFront ? <p>{front}</p> : <p>{back}</p>}
 
         </div>

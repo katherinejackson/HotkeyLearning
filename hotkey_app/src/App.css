@@ -1,12 +1,61 @@
-.App {
-  text-align: center;
-  
-}
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
+:root,
+  :root.default {
+    --bg-color: #FFFF;
+    --text-color: #123;
+  }
+
+  :root.colour {
+    --bg-color: #45ADFE;
+    --text-color: #FFFF;
+  }
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+button {
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: 0 10px 10px 0 rgb(0 0 0 / 10%), 0 6px 10px 0 rgb(0 0 0 / 5%);
+}
+
+.App {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.flashcard {
+  background-color: var(--bg-color);
+  height: 300px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  font-size: 2rem;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  margin: 1rem;
+}
+
+.flashcard-buttons {
+  display: flex;
+  justify-content: space-around;
+  font-size: 3rem;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -14,25 +63,11 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
