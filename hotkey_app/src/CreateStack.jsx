@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CheckFlashCard from "./CheckFlashCard";
+import { onClick } from "./studyEventHandlers";
 
 const CreateStack = ({ data, selectedData }) => {
 
     const handleClick = (event) => {
         if (event.target.checked) {
             selectedData.push(parseInt(event.target.id))
+            onClick(parseInt(event.target.id))
         } else {
             const index = selectedData.indexOf(parseInt(event.target.id))
             
