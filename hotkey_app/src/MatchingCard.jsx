@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CheckFlashCard from "./CheckFlashCard";
 
-const MatchingCard = ({data}) => {
+const MatchingCard = ({ text, handleClick, value }) => {
 
     return (
-        <div className="">
-            <p>Please add all the commands you would like to learn</p>
-            {data.map((command, index) => (
-                <CheckFlashCard command={command}/>
-            ))}
+        // <div onClick={handleClick} className="" >
+        <button onClick={handleClick} value={value}>{text}</button>
+        // </div>
 
-        </div>
-        
     )
 
 }
