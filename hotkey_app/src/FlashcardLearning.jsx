@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import Flashcard from "./Flashcard";
-
-const options = window.options || { selectedItems: '([1, 2, 3, 45,])' }
+const colours = ['blue', 'green', 'purple', 'orange']
 
 const parseItems = (items) => {
     items = items.replace("(", '')
@@ -15,12 +13,30 @@ const parseItems = (items) => {
     // items.forEach(i => parseInt(i))
     // TODO this is stupid and broken
 
+    items.pop()
+
     return items
 }
 
-const FlashcardLearning = ({ data }) => {
+
+const getColour = (options) => {
+    if (options.colour_scheme == 'default') {
+        return "default"
+    } else {
+        const randomIndex = Math.floor(Math.random() * colours.length);
+        return colours[randomIndex]
+    }
+}
+
+const FlashcardLearning = ({ data, options }) => {
     const [currentIndex, setCurrentIndex] = useState(0)
-    const selectedItems = parseItems(options.selectedItems)
+    const [selectedItems] = useState(parseItems(options.selectedItems))
+    const [colour, setColour] = useState(getColour(options))
+    const [showFront, setShowFront] = useState(true);
+
+    const handleCardClick = () => {
+        setShowFront(!showFront)
+    }
 
     const showNextCard = () => {
         if (currentIndex + 1 < selectedItems.length) {
@@ -29,6 +45,8 @@ const FlashcardLearning = ({ data }) => {
             setCurrentIndex(0)
         }
 
+        setColour(getColour(options))
+        setShowFront(true)
     }
 
     const showPrevCard = () => {
@@ -38,13 +56,18 @@ const FlashcardLearning = ({ data }) => {
             setCurrentIndex(selectedItems.length - 1)
         }
 
+        setColour(getColour(options))
+        setShowFront(true)
     }
 
     return (
         selectedItems.length > 0
             ? <div>
                 <p className="d-flex justify-content-end">{`${currentIndex + 1} / ${selectedItems.length}`}</p>
-                <Flashcard front={data[selectedItems[currentIndex]]['command']} back={data[selectedItems[currentIndex]]['windows_key']} />
+                <div className={`flashcard ${colour}`} onClick={handleCardClick}>
+                    {showFront ? <p>{data[selectedItems[currentIndex]]['command']}</p> : <p>{data[selectedItems[currentIndex]]['windows_key']}</p>}
+
+                </div>
                 <div className="flashcard-buttons">
                     <button onClick={showPrevCard}>‹</button>
                     <button onClick={showNextCard}>›</button>

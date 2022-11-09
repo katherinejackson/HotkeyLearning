@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useTimer from 'easytimer-react-hook';
 
 
-import MatchingCard from "./MatchingCard";
-// import Timer from "./Timer";
-
-const options = window.options || { selectedItems: '([1, 2, 3, 45,])', colour_scheme: 'colour' }
+import Card from "./Card";
 
 const parseItems = (items) => {
     items = items.replace("(", '')
@@ -51,12 +48,11 @@ const shuffleCards = (array) => {
     return array;
 }
 
-const Matching = ({ selectedItems, cards, allCards, resetStack }) => {
+const Matching = ({ selectedItems, cards, resetStack, options }) => {
     const [clearedCards, setClearedCards] = useState([])
     const [selected, setSelected] = useState(null)
     const [finishTime, setFinishTime] = useState(null)
     const [displayText, setDisplayText] = useState('')
-    const width = window.innerWidth * 0.6 || 1000
 
     const [timer,] = useTimer();
     timer.start();
@@ -111,14 +107,16 @@ const Matching = ({ selectedItems, cards, allCards, resetStack }) => {
             <button onClick={handleRestart}>Restart</button>
             <p>{displayText}</p>
 
-            <div className="matching-game" >
+            <div className="grid" >
                 {cards.map(c => (
-                    <MatchingCard
+                    <Card
                         text={c['text']}
                         value={[c['index'], c['text'], c['type']]}
                         handleClick={handleClick}
                         selected={isSelected(c)}
-                        display={c['display']} />
+                        display={c['display']} 
+                        options={options}
+                        />
 
                 ))}
             </div>

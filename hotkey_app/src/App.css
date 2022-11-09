@@ -15,6 +15,26 @@
     --text-color: #FFFF;
   }
 
+.default {
+  --bg-color: #FFFF;
+}
+
+.blue {
+  --bg-color: #45ADFE;
+}
+
+.green {
+  --bg-color: #6AFF33;
+}
+
+.purple{
+  --bg-color: #8358F9;
+}
+
+.orange{
+  --bg-color: #F9AB43;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -56,7 +76,7 @@ button {
   font-size: 3rem;
 }
 
-.matchingcard {
+.my-card {
   background-color: var(--bg-color);
   height: 120px;
   width: 120px;
@@ -71,13 +91,12 @@ button {
 
 }
 
-.matching-game {
+.grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(20, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   justify-items: center;
   align-items: stretch;
-  gap: 0.5rem;
 }
 
 .selected {

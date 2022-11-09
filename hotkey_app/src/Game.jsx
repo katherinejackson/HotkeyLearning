@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Matching from "./Matching";
-
-const options = window.options || { selectedItems: '([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 45,])', colour_scheme: 'colour' }
 
 const parseItems = (items) => {
     items = items.replace("(", '')
@@ -46,7 +44,7 @@ const shuffleCards = (array) => {
     return array;
 }
 
-const Game = ({ data }) => {
+const Game = ({ data, options }) => {
     const [selectedItems, setSelectedItems] = useState(parseItems(options.selectedItems))
     const [cards, setCards] = useState(shuffleCards(getCards(selectedItems, data)))
 
@@ -56,7 +54,7 @@ const Game = ({ data }) => {
 
     return (
         <div>
-            <Matching selectedItems={selectedItems} cards={cards} resetStack={resetStack} />
+            <Matching selectedItems={selectedItems} cards={cards} resetStack={resetStack} options={options} />
         </div>
 
     )
