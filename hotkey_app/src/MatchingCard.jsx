@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import CheckFlashCard from "./CheckFlashCard";
 
-const MatchingCard = ({ text, handleClick, value }) => {
+const MatchingCard = ({ display, text, handleClick, value, selected }) => {
 
     return (
-        // <div onClick={handleClick} className="" >
-        <button onClick={handleClick} value={value}>{text}</button>
-        // </div>
-
+        <button
+            className={`matchingcard ${selected == true ? 'selected' : ''}`}
+            onClick={handleClick}
+            value={value}>
+            {display ? text : ''}
+        </button>
     )
 
 }

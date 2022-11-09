@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useTimer from 'easytimer-react-hook';
 
-import MatchingCard from "./MatchingCard";
 
-const options = window.options || { selectedItems: '([1, 2, 3, 45,])' }
+import MatchingCard from "./MatchingCard";
+// import Timer from "./Timer";
+
+const options = window.options || { selectedItems: '([1, 2, 3, 45,])', colour_scheme: 'colour' }
 
 const parseItems = (items) => {
     items = items.replace("(", '')
@@ -16,80 +18,110 @@ const parseItems = (items) => {
     // items.forEach(i => parseInt(i))
     // TODO this is stupid and broken
 
+    items.pop()
+
     return items
 }
 
-const getLists = (selectedItems, data) => {
-    const commands = {}
-    const keys = {}
+const getCards = (selectedItems, data) => {
+    const cards = []
 
     selectedItems.map(i => {
         const row = data[i]
-        commands[i] = row['command']
-        keys[i] = row['windows_key']
+        cards.push({ text: row['command'], type: 'command', index: i, display: true })
+        cards.push({ text: row['windows_key'], type: 'key', index: i, display: true })
     })
 
-    return [commands, keys]
+    console.log('here')
+
+    return cards
+
 }
 
-const Matching = ({ data }) => {
-    const selectedItems = parseItems(options.selectedItems)
-    const [c, k] = getLists(selectedItems, data)
-    const [commands, setCommands] = useState(c)
-    const [keys, setKeys] = useState(k)
+const shuffleCards = (array) => {
+    const length = array.length;
+    for (let i = length; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * i);
+        const currentIndex = i - 1;
+        const temp = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temp;
+    }
+
+    return array;
+}
+
+const Matching = ({ selectedItems, cards, allCards, resetStack }) => {
+    const [clearedCards, setClearedCards] = useState([])
     const [selected, setSelected] = useState(null)
     const [finishTime, setFinishTime] = useState(null)
+    const [displayText, setDisplayText] = useState('')
+    const width = window.innerWidth * 0.6 || 1000
 
-    const [timer, ] = useTimer();
+    const [timer,] = useTimer();
     timer.start();
 
-    const handleClick = (item) => {
 
-        item = item.target.value
+    const handleClick = (item) => {
+        item = item.target.value.split(",")
+        item = { index: item[0], text: item[1], type: item[2] }
+
         if (selected == null) {
             setSelected(item)
         } else {
-            if (selected == item) {
-                delete commands[item]
-                setCommands(commands)
+            if (selected['index'] == item['index'] && selected['type'] !== item['type']) {
 
+                cards.forEach(card => {
+                    if (card['index'] == item['index']) {
+                        card['display'] = false
+                    }
+                })
 
-                delete keys[item]
-                setKeys(keys)
-                
+                clearedCards.push(item['index'])
+
+                setDisplayText('Correct!')
+
             } else {
-                console.log('wrong wrong')
+                setDisplayText('Incorrect!')
             }
 
             setSelected(null)
         }
 
-        if (Object.keys(commands).length == 0) {
+        if (clearedCards.length == selectedItems.length) {
             setFinishTime(timer.getTimeValues().toString())
             timer.stop()
-            
+            setDisplayText('Completed!')
         }
     }
 
     const handleRestart = () => {
-        setCommands(c)
-        setKeys(k)
+        resetStack()
         timer.reset()
         setFinishTime(null)
     }
 
-    return (
-        <div className="">
-            {finishTime ? finishTime : timer.getTimeValues().toString()}
-            {Object.keys(commands).map((c, index) => (
-                <MatchingCard text={commands[c]} value={c} handleClick={handleClick} />
-            ))}
+    const isSelected = (item) => {
+        return selected && item['index'] == selected['index'] && item['type'] == selected['type']
+    }
 
-            {Object.keys(keys).map((k, index) => (
-                <MatchingCard text={keys[k]} value={k} handleClick={handleClick} />
-            ))}
-            
+    return (
+        <div>
+            {finishTime ? finishTime : timer.getTimeValues().toString()}
             <button onClick={handleRestart}>Restart</button>
+            <p>{displayText}</p>
+
+            <div className="matching-game" >
+                {cards.map(c => (
+                    <MatchingCard
+                        text={c['text']}
+                        value={[c['index'], c['text'], c['type']]}
+                        handleClick={handleClick}
+                        selected={isSelected(c)}
+                        display={c['display']} />
+
+                ))}
+            </div>
         </div>
 
     )

@@ -5,7 +5,9 @@ import CreateStack from './CreateStack';
 import FlashcardLearning from './FlashcardLearning';
 import keyData from './keyData'
 import Matching from './Matching';
+import Matching2 from './Matching2';
 import './App.css'
+import Game from './Game';
 
 const options = window.options || { view: 'game', color_scheme: 'default' };
 
@@ -24,7 +26,7 @@ function App() {
     <div className="App">
       {view == 'create' ? <CreateStack data={data} selectedData={selectedData} />
         : view == 'flashcards' ? <FlashcardLearning data={data} selectedData={selectedData} />
-          : view == 'game' ? <Matching data={data} />
+          : view == 'game' ? <Game data={data} />
             : null
       }
     </div>
