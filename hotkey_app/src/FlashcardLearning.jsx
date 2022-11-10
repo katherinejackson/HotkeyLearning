@@ -7,13 +7,9 @@ const parseItems = (items) => {
     items = items.replace(")", '')
     items = items.replace("[", '')
     items = items.replace("]", '')
+    items = items.replaceAll("'", '')
 
     items = items.split(",").map(Number)
-
-    // items.forEach(i => parseInt(i))
-    // TODO this is stupid and broken
-
-    items.pop()
 
     return items
 }
@@ -29,6 +25,8 @@ const getColour = (options) => {
 }
 
 const FlashcardLearning = ({ data, options }) => {
+    options['selectedItems'] = window?.localStorage?.selected_items || "([0,1,2])"
+    console.log(options)
     const [currentIndex, setCurrentIndex] = useState(0)
     const [selectedItems] = useState(parseItems(options.selectedItems))
     const [colour, setColour] = useState(getColour(options))

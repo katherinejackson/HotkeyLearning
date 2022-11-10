@@ -7,13 +7,9 @@ const parseItems = (items) => {
     items = items.replace(")", '')
     items = items.replace("[", '')
     items = items.replace("]", '')
+    items = items.replaceAll("'", '')
 
     items = items.split(",").map(Number)
-
-    // items.forEach(i => parseInt(i))
-    // TODO this is stupid and broken
-
-    items.pop()
 
     return items
 }
@@ -45,16 +41,25 @@ const shuffleCards = (array) => {
 }
 
 const Game = ({ data, options }) => {
+    options['selectedItems'] = window?.localStorage?.selected_items || "([0,1,2])"
+    console.log(options)
     const [selectedItems, setSelectedItems] = useState(parseItems(options.selectedItems))
     const [cards, setCards] = useState(shuffleCards(getCards(selectedItems, data)))
+    const [started, setStarted] = useState(false)
 
     const resetStack = () => {
         setCards(shuffleCards(getCards(selectedItems, data)))
     }
 
+    const startGame = () => {
+        setStarted(true)
+    }
+
     return (
         <div>
-            <Matching selectedItems={selectedItems} cards={cards} resetStack={resetStack} options={options} />
+            {started
+            ? <Matching selectedItems={selectedItems} cards={cards} resetStack={resetStack} options={options} />
+            : <button onClick={startGame}>Start Game</button>}
         </div>
 
     )

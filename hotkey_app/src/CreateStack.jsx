@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "./Card";
 import { onClick } from "./studyEventHandlers";
 
-const CreateStack = ({ data, options }) => {
+const CreateStack = ({ data, options}) => {
     const [selectedData, setSelectedData] = useState([])
 
     const handleClick = (event) => {
@@ -24,7 +24,6 @@ const CreateStack = ({ data, options }) => {
 
     return (
         <div>
-            <p>Please add all the commands you would like to learn</p>
             <button onClick={handleNext}>Next</button>
             <div className="grid">
                 {data.map((command, index) => (
