@@ -7,7 +7,7 @@ import keyData from './keyData'
 import './App.css'
 import Game from './Game';
 
-const options = window?.options || { view: 'flashcards', colour_scheme: 'colour'};
+const options = window?.options || { view: 'game', colour_scheme: 'default'};
 
 function App() {
   options['selectedItems'] = window?.localStorage?.selected_items || "([0,1,2])"
@@ -20,7 +20,7 @@ function App() {
   console.log(view)
 
   return (
-    <div className="App">
+    <div className={`App ${options['colour_scheme']}`}>
       {view == 'create' ? <CreateStack data={data} options={options}/>
         : view == 'flashcards' ? <FlashcardLearning data={data} options={options}/>
           : view == 'game' ? <Game data={data} options={options}/>

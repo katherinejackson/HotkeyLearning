@@ -70,7 +70,7 @@ const Matching = ({
 
     return (
         <div>
-            <div className="flex">
+            <div className="flex game_text">
                 <p>{highScore ? `High Score: ${highScore}` : null}</p>
                 <p>{finishTime ? `Finished Time: ${finishTime}` : `Current time: ${timer.getTimeValues().toString()}`}</p>
             </div>

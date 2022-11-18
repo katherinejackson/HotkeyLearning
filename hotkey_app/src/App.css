@@ -4,23 +4,18 @@
   pointer-events: none;
 }
 
-:root,
-  :root.default {
-    --bg-color: #FFFF;
-    --text-color: #123;
-  }
-
-  :root.colour {
-    --bg-color: #e4a3f7;
-    --text-color: #FFFF;
+.colour {
+    --bg-color: #8de1e8;
+    --text-color: black;
   }
 
 .default {
   --bg-color: #FFFF;
+  --text-color: black;
 }
 
-.blue {
-  --bg-color: #45ADFE;
+.pink {
+  --bg-color: #f08ade;
 }
 
 .green {
@@ -40,7 +35,7 @@
 }
 
 .dark_blue{
-  --bg-color: #2b4de3;
+  --bg-color: #3c72de;
 }
 
 .yellow{
@@ -99,7 +94,7 @@ p {
 
 .my-card {
   background-color: var(--bg-color);
-  border-color: azure;
+  border-color: black;
   height: 120px;
   width: 120px;
   display: flex;
@@ -113,6 +108,11 @@ p {
 
 }
 
+.game_text p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -123,7 +123,13 @@ p {
 
 .selected {
   border-style: solid;
-  border-width: 10px;
+  border-width: 8px;
+}
+
+.next-buttons {
+  position: absolute;
+  bottom: 4rem;
+  right: 4rem;
 }
 
 
