@@ -7,10 +7,9 @@ import keyData from './keyData'
 import './App.css'
 import Game from './Game';
 
-const options = window?.options || { view: 'flashcards', colour_scheme: 'default'};
+const options = window?.options || { view: 'flashcards', colour_scheme: 'colour'};
 
 function App() {
-  // const [view, setView] = useState('flashcard')
   options['selectedItems'] = window?.localStorage?.selected_items || "([0,1,2])"
   console.log("App", options)
   const [view, setView] = useState(options['view'])

@@ -34,6 +34,7 @@ const CreateStack = ({ data, options}) => {
                         selected={selectedData.includes(index)}
                         value={index}
                         options={options}
+                        key={command['command']}
                     />
 
                 ))}

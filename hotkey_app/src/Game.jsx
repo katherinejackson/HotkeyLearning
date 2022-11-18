@@ -46,6 +46,8 @@ const Game = ({ data, options }) => {
     const [selectedItems, setSelectedItems] = useState(parseItems(options.selectedItems))
     const [cards, setCards] = useState(shuffleCards(getCards(selectedItems, data)))
     const [started, setStarted] = useState(false)
+    const [highScore, setHighScore] = useState(null)
+    const [gameNumber, setGameNumber] = useState(1)
 
     const resetStack = () => {
         setCards(shuffleCards(getCards(selectedItems, data)))
@@ -58,8 +60,18 @@ const Game = ({ data, options }) => {
     return (
         <div>
             {started
-            ? <Matching selectedItems={selectedItems} cards={cards} resetStack={resetStack} options={options} />
-            : <button onClick={startGame}>Start Game</button>}
+                ? <Matching
+                    cards={cards}
+                    gameNumber={gameNumber}
+                    highScore={highScore}
+                    key={gameNumber}
+                    options={options}
+                    resetStack={resetStack}
+                    selectedItems={selectedItems}
+                    setGameNumber={setGameNumber}
+                    setHighScore={setHighScore}
+                />
+                : <button onClick={startGame}>Start Game</button>}
         </div>
 
     )

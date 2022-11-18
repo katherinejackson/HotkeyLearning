@@ -1,62 +1,25 @@
 import React, { useState } from "react";
 import useTimer from 'easytimer-react-hook';
 
-
 import Card from "./Card";
+import { onFinishGame, onReplayClick } from "./studyEventHandlers";
 
-const parseItems = (items) => {
-    items = items.replace("(", '')
-    items = items.replace(")", '')
-    items = items.replace("[", '')
-    items = items.replace("]", '')
-
-    items = items.split(",").map(Number)
-
-    // items.forEach(i => parseInt(i))
-    // TODO this is stupid and broken
-
-    items.pop()
-
-    return items
-}
-
-const getCards = (selectedItems, data) => {
-    const cards = []
-
-    selectedItems.map(i => {
-        const row = data[i]
-        cards.push({ text: row['command'], type: 'command', index: i, display: true })
-        cards.push({ text: row['windows_key'], type: 'key', index: i, display: true })
-    })
-
-    console.log('here')
-
-    return cards
-
-}
-
-const shuffleCards = (array) => {
-    const length = array.length;
-    for (let i = length; i > 0; i--) {
-        const randomIndex = Math.floor(Math.random() * i);
-        const currentIndex = i - 1;
-        const temp = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temp;
-    }
-
-    return array;
-}
-
-const Matching = ({ selectedItems, cards, resetStack, options }) => {
+const Matching = ({
+    cards,
+    gameNumber,
+    highScore,
+    options,
+    resetStack,
+    selectedItems, 
+    setGameNumber,
+    setHighScore
+}) => {
     const [clearedCards, setClearedCards] = useState([])
     const [selected, setSelected] = useState(null)
     const [finishTime, setFinishTime] = useState(null)
-    const [displayText, setDisplayText] = useState('')
 
     const [timer,] = useTimer();
     timer.start();
-
 
     const handleClick = (item) => {
         item = item.target.value.split(",")
@@ -74,27 +37,31 @@ const Matching = ({ selectedItems, cards, resetStack, options }) => {
                 })
 
                 clearedCards.push(item['index'])
-
-                setDisplayText('Correct!')
-
-            } else {
-                setDisplayText('Incorrect!')
             }
-
             setSelected(null)
         }
 
         if (clearedCards.length == selectedItems.length) {
             setFinishTime(timer.getTimeValues().toString())
+
+            if (!highScore || timer.getTimeValues().toString() < highScore) {
+                setHighScore(timer.getTimeValues().toString())
+                onFinishGame(timer.getTimeValues().toString())
+            } else {
+                onFinishGame(highScore)
+            }
+
             timer.stop()
-            setDisplayText('Completed!')
         }
     }
 
     const handleRestart = () => {
+        setClearedCards([])
+        setGameNumber(gameNumber + 1)
         resetStack()
         timer.reset()
         setFinishTime(null)
+        onReplayClick()
     }
 
     const isSelected = (item) => {
@@ -103,20 +70,24 @@ const Matching = ({ selectedItems, cards, resetStack, options }) => {
 
     return (
         <div>
-            {finishTime ? finishTime : timer.getTimeValues().toString()}
+            <div className="flex">
+                <p>{highScore ? `High Score: ${highScore}` : null}</p>
+                <p>{finishTime ? `Finished Time: ${finishTime}` : `Current time: ${timer.getTimeValues().toString()}`}</p>
+            </div>
+
             <button onClick={handleRestart}>Restart</button>
-            <p>{displayText}</p>
 
             <div className="grid" >
                 {cards.map(c => (
                     <Card
+                        display={c['display']}
+                        handleClick={handleClick}
+                        key={gameNumber + '-' + c['text']}
+                        options={options}
+                        selected={isSelected(c)}
                         text={c['text']}
                         value={[c['index'], c['text'], c['type']]}
-                        handleClick={handleClick}
-                        selected={isSelected(c)}
-                        display={c['display']} 
-                        options={options}
-                        />
+                    />
 
                 ))}
             </div>

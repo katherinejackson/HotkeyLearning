@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-const colours = ['blue', 'green', 'purple', 'orange']
+import { colours } from "./constants";
+
 
 const getClassName = (options) => {
     var className = "my-card "

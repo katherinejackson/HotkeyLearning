@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-const colours = ['blue', 'green', 'purple', 'orange']
+import { onFinishStack } from "./studyEventHandlers";
+import { colours } from "./constants";
 
 const parseItems = (items) => {
     items = items.replace("(", '')
@@ -41,6 +41,7 @@ const FlashcardLearning = ({ data, options }) => {
             setCurrentIndex(currentIndex + 1)
         } else {
             setCurrentIndex(0)
+            onFinishStack()
         }
 
         setColour(getColour(options))
@@ -62,15 +63,14 @@ const FlashcardLearning = ({ data, options }) => {
         selectedItems.length > 0
             ? <div>
                 <p className="d-flex justify-content-end">{`${currentIndex + 1} / ${selectedItems.length}`}</p>
-                <div className={`flashcard ${colour}`} onClick={handleCardClick}>
-                    {showFront ? <p>{data[selectedItems[currentIndex]]['command']}</p> : <p>{data[selectedItems[currentIndex]]['windows_key']}</p>}
-
-                </div>
-                <div className="flashcard-buttons">
+                <div className="d-flex flex-row align-items-center h3">
                     <button onClick={showPrevCard}>‹</button>
+                    <div className={`flashcard ${colour}`} onClick={handleCardClick}>
+                        {showFront ? <p>{data[selectedItems[currentIndex]]['command']}</p> : <p>{data[selectedItems[currentIndex]]['windows_key']}</p>}
+
+                    </div>
                     <button onClick={showNextCard}>›</button>
                 </div>
-
             </div>
             : <p>No Cards to display</p>
     )

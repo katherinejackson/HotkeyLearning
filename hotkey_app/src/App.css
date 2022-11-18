@@ -11,7 +11,7 @@
   }
 
   :root.colour {
-    --bg-color: #45ADFE;
+    --bg-color: #e4a3f7;
     --text-color: #FFFF;
   }
 
@@ -35,6 +35,18 @@
   --bg-color: #F9AB43;
 }
 
+.red{
+  --bg-color: #e33b2b;
+}
+
+.dark_blue{
+  --bg-color: #2b4de3;
+}
+
+.yellow{
+  --bg-color: #eeeb55;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -44,6 +56,11 @@ button {
   border-radius: 5px;
   border-style: none;
   box-shadow: 0 10px 10px 0 rgb(0 0 0 / 10%), 0 6px 10px 0 rgb(0 0 0 / 5%);
+  padding: 1rem;
+}
+
+p {
+  font-size: large;
 }
 
 .App {
@@ -65,9 +82,13 @@ button {
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  font-size: 2rem;
   box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
   margin: 1rem;
+}
+
+.flashcard p {
+  font-size: larger;
+  color: black;
 }
 
 .flashcard-buttons {
@@ -78,6 +99,7 @@ button {
 
 .my-card {
   background-color: var(--bg-color);
+  border-color: azure;
   height: 120px;
   width: 120px;
   display: flex;
@@ -101,7 +123,7 @@ button {
 
 .selected {
   border-style: solid;
-  border-width: 5px;
+  border-width: 10px;
 }
 
 
